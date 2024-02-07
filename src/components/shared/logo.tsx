@@ -17,7 +17,7 @@ const Logo = () => {
 				<Bot size={30} />
 				<div className="text-lg">
 					<span>ChatHub</span>
-					<span className="bg-gradient-to-r from-fuchsia-500 to-violet-500 bg-clip-text text-transparent">
+					<span className="bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
 						Ai
 					</span>
 				</div>

@@ -11,7 +11,7 @@ const ChatPage = () => {
 		useChat()
 
 	return (
-		<section className="flex flex-col items-center justify-center gap-y-6 max-w-5xl mx-auto  h-screen">
+		<section className="flex flex-col items-center justify-center gap-y-6 max-w-5xl mx-auto  h-screen px-2 md:px-0">
 			{/* Section messages */}
 			<section className="flex-1 space-y-5  w-full">
 				{messages.map(({ content, id, role }) => (
@@ -27,7 +27,7 @@ const ChatPage = () => {
 							className={cn(
 								'rounded-xl p-1 shadow mx-4',
 								role === 'user'
-									? 'bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white'
+									? 'bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white'
 									: 'bg-white',
 							)}
 						>
