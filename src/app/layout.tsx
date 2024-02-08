@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/theme/theme-provider'
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Onest } from 'next/font/google'
@@ -18,7 +19,16 @@ export default function RootLayout({
 	return (
 		<ClerkProvider>
 			<html lang="en">
-				<body className={onest.className}>{children}</body>
+				<body className={onest.className}>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="dark"
+						enableSystem
+						disableTransitionOnChange
+					>
+						{children}
+					</ThemeProvider>
+				</body>
 			</html>
 		</ClerkProvider>
 	)

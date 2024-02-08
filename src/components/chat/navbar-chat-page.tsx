@@ -1,9 +1,10 @@
 'use client'
 import Logo from '@/components/shared/logo'
+import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { UserButton, useUser } from '@clerk/nextjs'
-import { LogIn, Sun } from 'lucide-react'
+import { LogIn } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 const NavbarChatPage = () => {
@@ -14,12 +15,12 @@ const NavbarChatPage = () => {
 			<nav className="flex items-center justify-between py-5">
 				<Logo />
 				{isLoaded ? (
-					<div className="flex items-center gap-x-6">
-						<Button size="icon" variant="ghost" className="rounded-lg">
-							<Sun />
-						</Button>
+					<div className="flex items-center gap-x-3">
+						<ThemeToggle />
 						{isSignedIn ? (
-							<UserButton afterSignOutUrl="/chat" />
+							<div className="dark:border dark:border-input dark:rounded-full">
+								<UserButton afterSignOutUrl="/chat" />
+							</div>
 						) : (
 							<Button
 								className="gap-x-1 rounded-lg"
@@ -32,7 +33,7 @@ const NavbarChatPage = () => {
 						)}
 					</div>
 				) : (
-					<Skeleton className="h-8 w-8 rounded-full" />
+					<Skeleton className="h-9 w-9 rounded-full" />
 				)}
 			</nav>
 		</header>

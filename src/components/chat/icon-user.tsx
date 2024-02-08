@@ -9,7 +9,7 @@ const IconUser = () => {
 	return (
 		<>
 			{isSignedIn ? (
-				<div>
+				<div className="w-8 h-8">
 					{isLoaded ? (
 						<img
 							src={user.imageUrl}
@@ -23,7 +23,7 @@ const IconUser = () => {
 					)}
 				</div>
 			) : (
-				<div className="p-1 bg-white rounded-full inline-block shadow">
+				<div className="p-1 bg-white rounded-full inline-block shadow dark:text-black">
 					<UserRound size={25} />
 				</div>
 			)}
