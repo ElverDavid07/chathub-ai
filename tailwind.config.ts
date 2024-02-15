@@ -7,6 +7,7 @@ const config = {
 		'./components/**/*.{ts,tsx}',
 		'./app/**/*.{ts,tsx}',
 		'./src/**/*.{ts,tsx}',
+		'./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
 	],
 	prefix: '',
 	theme: {
@@ -67,14 +68,27 @@ const config = {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' },
 				},
+
+				'background-shine': {
+					from: {
+						backgroundPosition: '0 0',
+					},
+					to: {
+						backgroundPosition: '-200% 0',
+					},
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+				'background-shine': 'background-shine 2s linear infinite',
 			},
 		},
+		fontFamily: {
+			fira_code: ['var(--fira_code),monospace'],
+		},
 	},
-	plugins: [require('tailwindcss-animate')],
+	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 } satisfies Config
 
 export default config

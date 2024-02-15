@@ -1,25 +1,42 @@
 'use client'
 import Logo from '@/components/shared/logo'
+import { ThemeToggle } from '@/components/theme/theme-toggle'
+import { Button } from '@/components/ui/button'
+import { Skeleton } from '@/components/ui/skeleton'
+import { UserButton, useUser } from '@clerk/nextjs'
+import { LogIn } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { Button } from '../ui/button'
 
 const Navbar = () => {
+	const { isSignedIn, isLoaded } = useUser()
 	const { push } = useRouter()
-
 	return (
-		<header className="mx-auto container px-2 md:px-0 top-0 sticky bg-background z-10">
+		<header className="2xl:mx-auto 2xl:container px-2 md:px-16 top-0  sticky bg-background z-50">
 			<nav className="flex items-center justify-between py-5">
 				<Logo />
-				<div className="space-x-3">
-					<Button
-						variant="started"
-						size="lg"
-						onClick={() => push('/chat')}
-						className="rounded-full"
-					>
-						Get started
-					</Button>
-				</div>
+				<section className="flex items-center gap-x-3">
+					<ThemeToggle />
+					{isLoaded ? (
+						<div>
+							{isSignedIn ? (
+								<UserButton afterSignOutUrl="/" />
+							) : (
+								<Button
+									className="gap-x-1 rounded-lg group"
+									onClick={() => push('sign-in')}
+								>
+									Sign in
+									<LogIn
+										size={18}
+										className="group-hover:translate-x-1 transition-all"
+									/>
+								</Button>
+							)}
+						</div>
+					) : (
+						<Skeleton className="h-9 w-9 rounded-full" />
+					)}
+				</section>
 			</nav>
 		</header>
 	)

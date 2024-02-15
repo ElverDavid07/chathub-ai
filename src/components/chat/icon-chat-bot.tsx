@@ -2,8 +2,10 @@ import { Bot } from 'lucide-react'
 
 const IconChatBot = ({ size }: { size: number }) => {
 	return (
-		<div className="p-1 bg-white rounded-full inline-block shadow dark:text-black ">
-			<Bot size={size} />
+		<div className="flex items-center gap-x-2">
+			<div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white p-1 rounded-full inline-block shadow ">
+				<Bot size={size} aria-label="icon assistant" />
+			</div>
 		</div>
 	)
 }

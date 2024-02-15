@@ -1,17 +1,17 @@
 'use client'
+import { Skeleton } from '@/components/ui/skeleton'
 import { useUser } from '@clerk/nextjs'
 import { UserRound } from 'lucide-react'
-import { Skeleton } from '../ui/skeleton'
-
+import Image from 'next/image'
 const IconUser = () => {
 	const { user, isLoaded, isSignedIn } = useUser()
 
 	return (
-		<>
+		<div className="flex items-center gap-x-2">
 			{isSignedIn ? (
 				<div className="w-8 h-8">
 					{isLoaded ? (
-						<img
+						<Image
 							src={user.imageUrl}
 							alt={`logo ${user.fullName}`}
 							width={32}
@@ -27,7 +27,7 @@ const IconUser = () => {
 					<UserRound size={25} />
 				</div>
 			)}
-		</>
+		</div>
 	)
 }
 
