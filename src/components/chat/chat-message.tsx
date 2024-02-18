@@ -12,8 +12,8 @@ export interface ChatMessageProps {
 const ChatMessages = ({ message }: ChatMessageProps) => {
 	return (
 		<MemoizedReactMarkdown
-			className="prose break-words prose-slate dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
 			remarkPlugins={[remarkGfm, remarkMath]}
+			className="prose break-words text-slate-700 dark:prose-invert dark:text-slate-300 prose-p:leading-relaxed prose-pre:p-0 table-markdown"
 			components={{
 				code(props) {
 					const { children, className, node, ...rest } = props

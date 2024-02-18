@@ -29,7 +29,7 @@ const PromptForm = ({
 		}
 	}, [])
 	return (
-		<section className="sticky bottom-0 bg-background/95 backdrop-blur-lg rounded-xl z-20 w-full md:max-w-5xl">
+		<section className="sticky bottom-0 bg-background/95 backdrop-blur-lg rounded-xl z-20 w-full md:px-2 md:w-full lg:max-w-5xl">
 			<form ref={formRef} onSubmit={handleSubmit}>
 				<div className="relative">
 					<TextArea

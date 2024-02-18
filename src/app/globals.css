@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.table-markdown{
+  @apply prose-thead:bg-white/20 prose-th:px-2 prose-th:border prose-th:border-white prose-td:px-2 prose-td:border prose-td:border-white prose-table:overflow-x-auto
+}
  
 @layer base {
   :root {

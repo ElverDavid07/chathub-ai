@@ -2,16 +2,14 @@ import ChatMessages from '@/components/chat/chat-message'
 import IconChatBot from '@/components/chat/icon-chat-bot'
 import IconUser from '@/components/chat/icon-user'
 import { cn } from '@/lib/utils'
-import type { Message } from 'ai'
+import { UseChatHelpers } from 'ai/react'
 import ChatActions from './chat-actions'
 
-interface ChatListProps {
-	messages: Message[]
-}
+type ChatListProps = Pick<UseChatHelpers, 'reload' | 'isLoading' | 'messages'>
 
-const ChatList = ({ messages }: ChatListProps) => {
+const ChatList = ({ messages, isLoading, reload }: ChatListProps) => {
 	return (
-		<section className="flex-1 space-y-5 md:max-w-3xl w-full">
+		<section className="flex-1 space-y-5 md:max-w-2xl lg:max-w-3xl w-full">
 			{messages.map((message) => (
 				<section
 					key={message.id}
@@ -30,13 +28,16 @@ const ChatList = ({ messages }: ChatListProps) => {
 					{/* Messages */}
 					<div
 						className={cn(
-							'rounded-xl py-1 text-pretty dark:text-slate-200 flex flex-col gap-y-1',
+							'rounded-xl py-1 text-pretty dark:text-slate-200 flex flex-col gap-y-1 min-w-full w-auto',
 							message.role === 'assistant' &&
 								'bg-white dark:bg-white/5 shadow p-3',
 						)}
 					>
 						<ChatMessages message={message} />
-						{message.role === 'assistant' && <ChatActions message={message} />}
+						{/*  Renderiza el componente ChatActions si el rol del mensaje es 'assistant' y la carga no está en progreso. */}
+						{message.role === 'assistant' && !isLoading && (
+							<ChatActions message={message} reload={reload} />
+						)}
 					</div>
 				</section>
 			))}

@@ -1,4 +1,3 @@
-import Navbar from '@/components/shared/navbar'
 import { ThemeProvider } from '@/components/theme/theme-provider'
 import { cn } from '@/lib/utils'
 import { ClerkProvider } from '@clerk/nextjs'
@@ -30,10 +29,7 @@ export default function RootLayout({
 						enableSystem
 						disableTransitionOnChange
 					>
-						<section className="flex flex-col h-screen min-h-screen w-full overflow-auto scroll-smooth">
-							<Navbar />
-							<main className="flex flex-col flex-1">{children}</main>
-						</section>
+						{children}
 					</ThemeProvider>
 				</body>
 			</html>
