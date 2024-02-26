@@ -1,20 +1,14 @@
 import { useUser } from '@clerk/nextjs'
 
 const EmptyScreen = () => {
-	const { user, isLoaded, isSignedIn } = useUser()
+	const { user } = useUser()
 	return (
-		<section className="h-full">
-			<div>
-				{isSignedIn ? (
-					<div>
-						<span className="text-3xl font-bold bg-gradient-to-br from-violet-500 to-fuchsia-500 bg-clip-text text-transparent ">{`Hi, ${
-							isLoaded && user.firstName
-						}.`}</span>
-					</div>
-				) : (
-					<h2>sd</h2>
-				)}
-			</div>
+		<section className="h-full max-w-3xl w-full mx-auto mt-10 flex flex-col items-center">
+			<p className="text-white/80 text-xl md:text-2xl font-bold flex-1 text-balance capitalize">
+				{`Hi ${
+					user?.firstName?.toLocaleLowerCase() ?? ''
+				} How can I help you today?`}
+			</p>
 		</section>
 	)
 }

@@ -3,11 +3,17 @@ import { cn } from '@/lib/utils'
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Fira_Code, Onest } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
 import './globals.css'
 
 // Fonts
 const onest = Onest({ subsets: ['latin'], variable: '--onest' })
-const firaCode = Fira_Code({ subsets: ['latin'], variable: '--fira_code' })
+const firaCode = Fira_Code({
+	subsets: ['latin'],
+	variable: '--fira_code',
+	preload: true,
+	fallback: ['monospace'],
+})
 
 export const metadata: Metadata = {
 	title: 'ChathubAi',
@@ -21,7 +27,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<ClerkProvider>
-			<html lang="en" suppressHydrationWarning>
+			<html lang="en">
 				<body className={cn('antialiased', onest.className, firaCode.variable)}>
 					<ThemeProvider
 						attribute="class"
@@ -30,6 +36,7 @@ export default function RootLayout({
 						disableTransitionOnChange
 					>
 						{children}
+						<Toaster />
 					</ThemeProvider>
 				</body>
 			</html>

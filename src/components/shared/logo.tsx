@@ -10,7 +10,7 @@ const Logo = () => {
 		<Link href={'/'}>
 			<div
 				className={cn(
-					'flex items-center gap-x-1 font-bold',
+					'hidden lg:flex items-center gap-x-1 font-bold',
 					montserrat.className,
 				)}
 			>
