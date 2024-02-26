@@ -24,7 +24,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
 		<div className="relative w-full bg-black">
 			{/* navbar codeblock */}
 			<div className="flex items-center justify-between w-full px-4 py-2  bg-zinc-800 text-slate-200">
-				<span className="text-sm lowercase font-semibold">{language}</span>
+				<span className="text-sm lowercase font-bold">{language}</span>
 
 				<Button
 					variant="ghost"

@@ -29,7 +29,7 @@ const PromptForm = ({
 		}
 	}, [])
 	return (
-		<section className="sticky bottom-0 bg-background/95 backdrop-blur-lg rounded-xl z-20 w-full md:px-2 md:w-full lg:max-w-5xl">
+		<section className="sticky bottom-0 bg-background/95 backdrop-blur-lg rounded-xl z-20 w-full md:px-2 md:w-full lg:max-w-5xl mt-6">
 			<form ref={formRef} onSubmit={handleSubmit}>
 				<div className="relative">
 					<TextArea
@@ -71,8 +71,8 @@ const PromptForm = ({
 				</div>
 			</form>
 			<p className="text-center py-2 text-xs dark:text-slate-200">
-				ChatHubAi beta can make mistakes. Consider checking important
-				information.
+				ChathubAi may produce inaccurate information about people, places or
+				facts.
 			</p>
 		</section>
 	)

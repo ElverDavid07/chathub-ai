@@ -1,22 +1,22 @@
 'use client'
+import SidebarMobile from '@/components/chat/sidebar-mobile'
 import Logo from '@/components/shared/logo'
 import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
-import UseSidebar from '@/lib/hooks/use-sidebar'
 import { UserButton, useUser } from '@clerk/nextjs'
 import { LogIn } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
 	const { isSignedIn, isLoaded } = useUser()
-	const { isSidebarOpen } = UseSidebar()
-	console.log(isSidebarOpen)
+
 	const { push } = useRouter()
 	return (
-		<header className="2xl:mx-auto 2xl:container px-2 md:px-16 top-0  sticky bg-background z-50">
-			<nav className="flex items-center justify-between py-5">
+		<header className="2xl:mx-auto 2xl:container px-2 md:px-16 top-0  sticky bg-background z-50 border-b border-white/20 md:border-none mb-3">
+			<nav className="flex items-center justify-between py-2 md:py-3">
 				<div className="flex items-center gap-x-3">
+					<SidebarMobile />
 					<Logo />
 				</div>
 				<section className="flex items-center gap-x-3">
@@ -24,7 +24,7 @@ const Navbar = () => {
 					{isLoaded ? (
 						<div>
 							{isSignedIn ? (
-								<UserButton afterSignOutUrl="/" />
+								<UserButton afterSignOutUrl="/sign-in" />
 							) : (
 								<Button
 									className="gap-x-1 rounded-lg group"

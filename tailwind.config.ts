@@ -84,9 +84,6 @@ const config = {
 				'background-shine': 'background-shine 2s linear infinite',
 			},
 		},
-		fontFamily: {
-			fira_code: ['var(--fira_code),monospace'],
-		},
 	},
 	plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 } satisfies Config
